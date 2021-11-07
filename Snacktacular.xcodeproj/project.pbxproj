@@ -10,6 +10,10 @@
 		00803FC4D5F5AAB2C76A1E46 /* Pods_Snacktacular.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F3F9D1258710090430D4432 /* Pods_Snacktacular.framework */; };
 		A42FE61D272DD9FB008F35DD /* Spots.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42FE61C272DD9FB008F35DD /* Spots.swift */; };
 		A42FE61F272EECB3008F35DD /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42FE61E272EECB3008F35DD /* APIKeys.swift */; };
+		A44DB63B2736EB9B006E345E /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44DB63A2736EB9B006E345E /* Review.swift */; };
+		A44DB63D2736EE0D006E345E /* Reviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44DB63C2736EE0D006E345E /* Reviews.swift */; };
+		A4AB644227382D830027C312 /* SpotReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AB644127382D830027C312 /* SpotReviewTableViewCell.swift */; };
+		A4BF75D327342E51002AEF03 /* ReviewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BF75D227342E51002AEF03 /* ReviewTableViewController.swift */; };
 		A4E0BD28272B056100388D32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E0BD27272B056100388D32 /* AppDelegate.swift */; };
 		A4E0BD2A272B056100388D32 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E0BD29272B056100388D32 /* SceneDelegate.swift */; };
 		A4E0BD2C272B056100388D32 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E0BD2B272B056100388D32 /* LoginViewController.swift */; };
@@ -30,6 +34,10 @@
 		A1D74B561C1B7CD4DDD4C398 /* Pods-Snacktacular.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Snacktacular.debug.xcconfig"; path = "Target Support Files/Pods-Snacktacular/Pods-Snacktacular.debug.xcconfig"; sourceTree = "<group>"; };
 		A42FE61C272DD9FB008F35DD /* Spots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spots.swift; sourceTree = "<group>"; };
 		A42FE61E272EECB3008F35DD /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
+		A44DB63A2736EB9B006E345E /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		A44DB63C2736EE0D006E345E /* Reviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reviews.swift; sourceTree = "<group>"; };
+		A4AB644127382D830027C312 /* SpotReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotReviewTableViewCell.swift; sourceTree = "<group>"; };
+		A4BF75D227342E51002AEF03 /* ReviewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableViewController.swift; sourceTree = "<group>"; };
 		A4E0BD24272B056000388D32 /* Snacktacular.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snacktacular.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4E0BD27272B056100388D32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4E0BD29272B056100388D32 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,10 +91,14 @@
 				A4E0BD29272B056100388D32 /* SceneDelegate.swift */,
 				A4E0BD43272C860800388D32 /* Spot.swift */,
 				A42FE61C272DD9FB008F35DD /* Spots.swift */,
+				A44DB63A2736EB9B006E345E /* Review.swift */,
+				A44DB63C2736EE0D006E345E /* Reviews.swift */,
 				A4E0BD2B272B056100388D32 /* LoginViewController.swift */,
 				A4E0BD3D272B6D7B00388D32 /* SpotListViewController.swift */,
 				A4E0BD3F272B6EF600388D32 /* SpotTableViewCell.swift */,
 				A4E0BD41272B713D00388D32 /* SpotDetailViewController.swift */,
+				A4AB644127382D830027C312 /* SpotReviewTableViewCell.swift */,
+				A4BF75D227342E51002AEF03 /* ReviewTableViewController.swift */,
 				A4E0BD45272C917D00388D32 /* UIViewController+alert.swift */,
 				A42FE61E272EECB3008F35DD /* APIKeys.swift */,
 				A4E0BD2D272B056100388D32 /* Main.storyboard */,
@@ -249,12 +261,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A44DB63D2736EE0D006E345E /* Reviews.swift in Sources */,
 				A4E0BD3E272B6D7B00388D32 /* SpotListViewController.swift in Sources */,
 				A4E0BD2C272B056100388D32 /* LoginViewController.swift in Sources */,
 				A4E0BD28272B056100388D32 /* AppDelegate.swift in Sources */,
 				A4E0BD42272B713D00388D32 /* SpotDetailViewController.swift in Sources */,
+				A4BF75D327342E51002AEF03 /* ReviewTableViewController.swift in Sources */,
+				A44DB63B2736EB9B006E345E /* Review.swift in Sources */,
 				A42FE61D272DD9FB008F35DD /* Spots.swift in Sources */,
 				A4E0BD40272B6EF600388D32 /* SpotTableViewCell.swift in Sources */,
+				A4AB644227382D830027C312 /* SpotReviewTableViewCell.swift in Sources */,
 				A42FE61F272EECB3008F35DD /* APIKeys.swift in Sources */,
 				A4E0BD44272C860800388D32 /* Spot.swift in Sources */,
 				A4E0BD2A272B056100388D32 /* SceneDelegate.swift in Sources */,

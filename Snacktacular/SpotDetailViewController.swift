@@ -8,6 +8,7 @@
 import UIKit
 import GooglePlaces
 import MapKit
+import Contacts
 
 class SpotDetailViewController: UIViewController {
 
@@ -19,17 +20,38 @@ class SpotDetailViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
     
+    @IBOutlet weak var tableView: UITableView!
+    
+    
     var spot: Spot!
     let regionDistance: CLLocationDegrees = 750.0
+    var locationManager:  CLLocationManager!
+    var reviews: Reviews!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+        tap.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tap)
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        getLocation()
         if spot == nil {
             spot = Spot()
         }
         setUpMapView()
+        reviews = Reviews()
         updateUserInterface()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        reviews.loadData(spot: spot) {
+            self.tableView.reloadData()
+        }
     }
     
     func setUpMapView(){
@@ -44,6 +66,23 @@ class SpotDetailViewController: UIViewController {
         updateMap()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        updateFromInterface()
+        switch segue.identifier ?? "" {
+        case "AddReview":
+            let navigationController = segue.destination as! UINavigationController
+            let destination = navigationController.viewControllers.first as! ReviewTableViewController
+            destination.spot = spot
+        case "ShowReview":
+            let destination = segue.destination as! ReviewTableViewController
+            let selectedIndexPath = tableView.indexPathForSelectedRow!
+            destination.review = reviews.reviewArray[selectedIndexPath.row]
+            destination.spot = spot
+        default:
+            print("Couldn't find a case for segue identifier \(segue.identifier). This should not have happened")
+        }
+    }
+    
     func updateMap() {
         mapView.removeAnnotations(mapView.annotations)
         mapView.addAnnotation(spot)
@@ -53,6 +92,19 @@ class SpotDetailViewController: UIViewController {
     func updateFromInterface() {
         spot.name = nameTextField.text!
         spot.address = addressTextField.text!
+    }
+    
+    func saveCancelAlert(title: String, message: String, segueIdentifier: String){
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let saveAction = UIAlertAction(title: "Save", style: .default) { (_) in
+            self.spot.saveData { (success) in
+                self.performSegue(withIdentifier: segueIdentifier, sender: nil)
+            }
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(saveAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
     }
     
     func leaveViewController(){
@@ -86,6 +138,13 @@ class SpotDetailViewController: UIViewController {
         present(autocompleteController, animated: true, completion: nil)
     }
     
+    @IBAction func ratingButtonPressed(_ sender: UIButton) {
+        if spot.documentID == "" {
+            saveCancelAlert(title: "This Venue Has Not Been Saved", message: "You must save this venue before you can review it.", segueIdentifier: "AddReview")
+        } else {
+            performSegue(withIdentifier: "AddReview", sender: nil)
+        }
+    }
 }
 
 extension SpotDetailViewController: GMSAutocompleteViewControllerDelegate {
@@ -109,13 +168,96 @@ extension SpotDetailViewController: GMSAutocompleteViewControllerDelegate {
     dismiss(animated: true, completion: nil)
   }
 
-  // Turn the network activity indicator on and off again.
-  func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
-    UIApplication.shared.isNetworkActivityIndicatorVisible = true
-  }
-
-  func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
-    UIApplication.shared.isNetworkActivityIndicatorVisible = false
-  }
-
 }
+
+extension SpotDetailViewController: CLLocationManagerDelegate {
+    func getLocation(){
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        print("Checking authenitcation status")
+        handleAuthenticationStatus(status: status)
+    }
+    
+    func handleAuthenticationStatus(status: CLAuthorizationStatus){
+        switch status {
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+        case .restricted:
+            self.oneButtonALert(title: "Location services denied", message: "It may be that parental controls are restricting location use in this app")
+        case .denied:
+            showAlertToPrivacySettings(title: "User has not authorized location services.", message: "Select 'Settings' below to enable device settings and enable location services for this app.")
+        case .authorizedAlways, .authorizedWhenInUse:
+            locationManager.requestLocation()
+        @unknown default:
+            print("Developer alert, unknoqn case of status in handleAuthenticationStatus\(status)")
+        }
+    }
+    
+    func showAlertToPrivacySettings(title: String, message: String){
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        guard let settingsURL = URL(string: UIApplication.openSettingsURLString) else{
+            print("Something went wrong getting the UIAPplication.openSettingsURLString")
+            return
+        }
+        let settingsAction = UIAlertAction(title: "Settings", style: .default) { (_) in
+            UIApplication.shared.open(settingsURL, options: [:], completionHandler: nil)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(settingsAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("Updating Location")
+        let currentLocation = locations.last ?? CLLocation()
+        print("Current Location is \(currentLocation.coordinate.latitude), \(currentLocation.coordinate.longitude)")
+        var name = ""
+        var address = ""
+        let geocoder = CLGeocoder()
+        geocoder.reverseGeocodeLocation(currentLocation) { (placemarks, error) in
+            if error != nil {
+                print("ERROR: retriving place. \(error!.localizedDescription)")
+            }
+            if placemarks != nil {
+                let placemark = placemarks?.last
+                name = placemark?.name ?? "Name Unknown"
+                if let postalAddress = placemark?.postalAddress{
+                    address = CNPostalAddressFormatter.string(from: postalAddress, style: .mailingAddress)
+                }
+            } else {
+                print("ERROR: retriving placemakr. \(error!.localizedDescription)")
+            }
+            //if no spot data make device locatin the spot
+            if self.spot.name == "" && self.spot.address == "" {
+                self.spot.name = name
+                self.spot.address = address
+                self.spot.coordinate = currentLocation.coordinate
+            }
+            self.mapView.userLocation.title = name
+            self.mapView.userLocation.subtitle = address.replacingOccurrences(of: "\n", with: ", ")
+            self.updateUserInterface()
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("ERROR: \(error.localizedDescription). Failed to get device location")
+    }
+}
+
+extension SpotDetailViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return reviews.reviewArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ReviewCell", for: indexPath) as! SpotReviewTableViewCell
+        cell.review = reviews.reviewArray[indexPath.row]
+        return cell
+    }
+    
+}
+
