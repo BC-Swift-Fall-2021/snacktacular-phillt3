@@ -8,12 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		00803FC4D5F5AAB2C76A1E46 /* Pods_Snacktacular.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F3F9D1258710090430D4432 /* Pods_Snacktacular.framework */; };
+		A423C1EB273C8E0000D1244F /* UIView+addBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A423C1EA273C8DFF00D1244F /* UIView+addBorder.swift */; };
+		A423C1ED273C8E8D00D1244F /* UIBarButtonItem+hide.swift in Sources */ = {isa = PBXBuildFile; fileRef = A423C1EC273C8E8D00D1244F /* UIBarButtonItem+hide.swift */; };
+		A423C1EF273DB92F00D1244F /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A423C1EE273DB92F00D1244F /* PhotoViewController.swift */; };
+		A423C1F1273DC17B00D1244F /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A423C1F0273DC17B00D1244F /* Photo.swift */; };
 		A42FE61D272DD9FB008F35DD /* Spots.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42FE61C272DD9FB008F35DD /* Spots.swift */; };
 		A42FE61F272EECB3008F35DD /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42FE61E272EECB3008F35DD /* APIKeys.swift */; };
+		A43D1929275125AE00437B4A /* SnackUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43D1928275125AE00437B4A /* SnackUser.swift */; };
+		A43D192B2751313000437B4A /* SnackUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43D192A2751313000437B4A /* SnackUserViewController.swift */; };
+		A43D192D2751315100437B4A /* SnackUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43D192C2751315100437B4A /* SnackUserTableViewCell.swift */; };
+		A43D192F275132C800437B4A /* SnackUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43D192E275132C800437B4A /* SnackUsers.swift */; };
 		A44DB63B2736EB9B006E345E /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44DB63A2736EB9B006E345E /* Review.swift */; };
 		A44DB63D2736EE0D006E345E /* Reviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44DB63C2736EE0D006E345E /* Reviews.swift */; };
 		A4AB644227382D830027C312 /* SpotReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AB644127382D830027C312 /* SpotReviewTableViewCell.swift */; };
 		A4BF75D327342E51002AEF03 /* ReviewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BF75D227342E51002AEF03 /* ReviewTableViewController.swift */; };
+		A4CF7A202741BB6600D0AD13 /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CF7A1F2741BB6600D0AD13 /* Photos.swift */; };
+		A4CF7A222741BFCA00D0AD13 /* SpotPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CF7A212741BFCA00D0AD13 /* SpotPhotoCollectionViewCell.swift */; };
 		A4E0BD28272B056100388D32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E0BD27272B056100388D32 /* AppDelegate.swift */; };
 		A4E0BD2A272B056100388D32 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E0BD29272B056100388D32 /* SceneDelegate.swift */; };
 		A4E0BD2C272B056100388D32 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E0BD2B272B056100388D32 /* LoginViewController.swift */; };
@@ -32,12 +42,22 @@
 		0F3CB79E421BB423D1491D12 /* Pods-Snacktacular.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Snacktacular.release.xcconfig"; path = "Target Support Files/Pods-Snacktacular/Pods-Snacktacular.release.xcconfig"; sourceTree = "<group>"; };
 		7F3F9D1258710090430D4432 /* Pods_Snacktacular.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Snacktacular.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1D74B561C1B7CD4DDD4C398 /* Pods-Snacktacular.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Snacktacular.debug.xcconfig"; path = "Target Support Files/Pods-Snacktacular/Pods-Snacktacular.debug.xcconfig"; sourceTree = "<group>"; };
+		A423C1EA273C8DFF00D1244F /* UIView+addBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+addBorder.swift"; sourceTree = "<group>"; };
+		A423C1EC273C8E8D00D1244F /* UIBarButtonItem+hide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+hide.swift"; sourceTree = "<group>"; };
+		A423C1EE273DB92F00D1244F /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		A423C1F0273DC17B00D1244F /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		A42FE61C272DD9FB008F35DD /* Spots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spots.swift; sourceTree = "<group>"; };
 		A42FE61E272EECB3008F35DD /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
+		A43D1928275125AE00437B4A /* SnackUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackUser.swift; sourceTree = "<group>"; };
+		A43D192A2751313000437B4A /* SnackUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackUserViewController.swift; sourceTree = "<group>"; };
+		A43D192C2751315100437B4A /* SnackUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackUserTableViewCell.swift; sourceTree = "<group>"; };
+		A43D192E275132C800437B4A /* SnackUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackUsers.swift; sourceTree = "<group>"; };
 		A44DB63A2736EB9B006E345E /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		A44DB63C2736EE0D006E345E /* Reviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reviews.swift; sourceTree = "<group>"; };
 		A4AB644127382D830027C312 /* SpotReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotReviewTableViewCell.swift; sourceTree = "<group>"; };
 		A4BF75D227342E51002AEF03 /* ReviewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableViewController.swift; sourceTree = "<group>"; };
+		A4CF7A1F2741BB6600D0AD13 /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
+		A4CF7A212741BFCA00D0AD13 /* SpotPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		A4E0BD24272B056000388D32 /* Snacktacular.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snacktacular.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4E0BD27272B056100388D32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4E0BD29272B056100388D32 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -93,13 +113,23 @@
 				A42FE61C272DD9FB008F35DD /* Spots.swift */,
 				A44DB63A2736EB9B006E345E /* Review.swift */,
 				A44DB63C2736EE0D006E345E /* Reviews.swift */,
+				A423C1F0273DC17B00D1244F /* Photo.swift */,
+				A4CF7A1F2741BB6600D0AD13 /* Photos.swift */,
+				A43D1928275125AE00437B4A /* SnackUser.swift */,
+				A43D192E275132C800437B4A /* SnackUsers.swift */,
 				A4E0BD2B272B056100388D32 /* LoginViewController.swift */,
 				A4E0BD3D272B6D7B00388D32 /* SpotListViewController.swift */,
 				A4E0BD3F272B6EF600388D32 /* SpotTableViewCell.swift */,
 				A4E0BD41272B713D00388D32 /* SpotDetailViewController.swift */,
 				A4AB644127382D830027C312 /* SpotReviewTableViewCell.swift */,
+				A4CF7A212741BFCA00D0AD13 /* SpotPhotoCollectionViewCell.swift */,
 				A4BF75D227342E51002AEF03 /* ReviewTableViewController.swift */,
+				A423C1EE273DB92F00D1244F /* PhotoViewController.swift */,
+				A43D192A2751313000437B4A /* SnackUserViewController.swift */,
+				A43D192C2751315100437B4A /* SnackUserTableViewCell.swift */,
 				A4E0BD45272C917D00388D32 /* UIViewController+alert.swift */,
+				A423C1EA273C8DFF00D1244F /* UIView+addBorder.swift */,
+				A423C1EC273C8E8D00D1244F /* UIBarButtonItem+hide.swift */,
 				A42FE61E272EECB3008F35DD /* APIKeys.swift */,
 				A4E0BD2D272B056100388D32 /* Main.storyboard */,
 				A4E0BD30272B056400388D32 /* Assets.xcassets */,
@@ -266,15 +296,25 @@
 				A4E0BD2C272B056100388D32 /* LoginViewController.swift in Sources */,
 				A4E0BD28272B056100388D32 /* AppDelegate.swift in Sources */,
 				A4E0BD42272B713D00388D32 /* SpotDetailViewController.swift in Sources */,
+				A4CF7A202741BB6600D0AD13 /* Photos.swift in Sources */,
 				A4BF75D327342E51002AEF03 /* ReviewTableViewController.swift in Sources */,
 				A44DB63B2736EB9B006E345E /* Review.swift in Sources */,
 				A42FE61D272DD9FB008F35DD /* Spots.swift in Sources */,
+				A423C1ED273C8E8D00D1244F /* UIBarButtonItem+hide.swift in Sources */,
 				A4E0BD40272B6EF600388D32 /* SpotTableViewCell.swift in Sources */,
+				A423C1EF273DB92F00D1244F /* PhotoViewController.swift in Sources */,
 				A4AB644227382D830027C312 /* SpotReviewTableViewCell.swift in Sources */,
+				A423C1F1273DC17B00D1244F /* Photo.swift in Sources */,
+				A43D192D2751315100437B4A /* SnackUserTableViewCell.swift in Sources */,
+				A43D192B2751313000437B4A /* SnackUserViewController.swift in Sources */,
 				A42FE61F272EECB3008F35DD /* APIKeys.swift in Sources */,
 				A4E0BD44272C860800388D32 /* Spot.swift in Sources */,
 				A4E0BD2A272B056100388D32 /* SceneDelegate.swift in Sources */,
+				A43D1929275125AE00437B4A /* SnackUser.swift in Sources */,
+				A4CF7A222741BFCA00D0AD13 /* SpotPhotoCollectionViewCell.swift in Sources */,
+				A43D192F275132C800437B4A /* SnackUsers.swift in Sources */,
 				A4E0BD46272C917E00388D32 /* UIViewController+alert.swift in Sources */,
+				A423C1EB273C8E0000D1244F /* UIView+addBorder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
