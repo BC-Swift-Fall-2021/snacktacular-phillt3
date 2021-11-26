@@ -86,6 +86,56 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A43D193027514B8D00437B4A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A4E0BD43272C860800388D32 /* Spot.swift */,
+				A42FE61C272DD9FB008F35DD /* Spots.swift */,
+				A44DB63A2736EB9B006E345E /* Review.swift */,
+				A44DB63C2736EE0D006E345E /* Reviews.swift */,
+				A423C1F0273DC17B00D1244F /* Photo.swift */,
+				A4CF7A1F2741BB6600D0AD13 /* Photos.swift */,
+				A43D1928275125AE00437B4A /* SnackUser.swift */,
+				A43D192E275132C800437B4A /* SnackUsers.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A43D193127514BC300437B4A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A4E0BD2B272B056100388D32 /* LoginViewController.swift */,
+				A4E0BD3D272B6D7B00388D32 /* SpotListViewController.swift */,
+				A4E0BD41272B713D00388D32 /* SpotDetailViewController.swift */,
+				A4BF75D227342E51002AEF03 /* ReviewTableViewController.swift */,
+				A423C1EE273DB92F00D1244F /* PhotoViewController.swift */,
+				A43D192A2751313000437B4A /* SnackUserViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		A43D193227514BE700437B4A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A4E0BD3F272B6EF600388D32 /* SpotTableViewCell.swift */,
+				A4AB644127382D830027C312 /* SpotReviewTableViewCell.swift */,
+				A4CF7A212741BFCA00D0AD13 /* SpotPhotoCollectionViewCell.swift */,
+				A43D192C2751315100437B4A /* SnackUserTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A43D193327514BF600437B4A /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				A4E0BD45272C917D00388D32 /* UIViewController+alert.swift */,
+				A423C1EA273C8DFF00D1244F /* UIView+addBorder.swift */,
+				A423C1EC273C8E8D00D1244F /* UIBarButtonItem+hide.swift */,
+				A42FE61E272EECB3008F35DD /* APIKeys.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		A4E0BD1B272B056000388D32 = {
 			isa = PBXGroup;
 			children = (
@@ -109,28 +159,10 @@
 			children = (
 				A4E0BD27272B056100388D32 /* AppDelegate.swift */,
 				A4E0BD29272B056100388D32 /* SceneDelegate.swift */,
-				A4E0BD43272C860800388D32 /* Spot.swift */,
-				A42FE61C272DD9FB008F35DD /* Spots.swift */,
-				A44DB63A2736EB9B006E345E /* Review.swift */,
-				A44DB63C2736EE0D006E345E /* Reviews.swift */,
-				A423C1F0273DC17B00D1244F /* Photo.swift */,
-				A4CF7A1F2741BB6600D0AD13 /* Photos.swift */,
-				A43D1928275125AE00437B4A /* SnackUser.swift */,
-				A43D192E275132C800437B4A /* SnackUsers.swift */,
-				A4E0BD2B272B056100388D32 /* LoginViewController.swift */,
-				A4E0BD3D272B6D7B00388D32 /* SpotListViewController.swift */,
-				A4E0BD3F272B6EF600388D32 /* SpotTableViewCell.swift */,
-				A4E0BD41272B713D00388D32 /* SpotDetailViewController.swift */,
-				A4AB644127382D830027C312 /* SpotReviewTableViewCell.swift */,
-				A4CF7A212741BFCA00D0AD13 /* SpotPhotoCollectionViewCell.swift */,
-				A4BF75D227342E51002AEF03 /* ReviewTableViewController.swift */,
-				A423C1EE273DB92F00D1244F /* PhotoViewController.swift */,
-				A43D192A2751313000437B4A /* SnackUserViewController.swift */,
-				A43D192C2751315100437B4A /* SnackUserTableViewCell.swift */,
-				A4E0BD45272C917D00388D32 /* UIViewController+alert.swift */,
-				A423C1EA273C8DFF00D1244F /* UIView+addBorder.swift */,
-				A423C1EC273C8E8D00D1244F /* UIBarButtonItem+hide.swift */,
-				A42FE61E272EECB3008F35DD /* APIKeys.swift */,
+				A43D193027514B8D00437B4A /* Models */,
+				A43D193127514BC300437B4A /* Controllers */,
+				A43D193227514BE700437B4A /* Views */,
+				A43D193327514BF600437B4A /* Utilities */,
 				A4E0BD2D272B056100388D32 /* Main.storyboard */,
 				A4E0BD30272B056400388D32 /* Assets.xcassets */,
 				A4E0BD32272B056400388D32 /* LaunchScreen.storyboard */,
