@@ -21,12 +21,14 @@ class Spot: NSObject, MKAnnotation {
         return ["name": name, "address": address, "latitude": latitude, "longitude": longitude, "averageRating": averageRating, "numberOfReviews": numberOfReviews, "postingUserID": postingUserID]
     }
     
-    var location: CLLocation {
-        return CLLocation(latitude: latitude, longitude: longitude)
-    }
+
     
     var title: String? {
         return name
+    }
+    
+    var location: CLLocation {
+        return CLLocation(latitude: latitude, longitude: longitude)
     }
     
     var latitude: CLLocationDegrees {
